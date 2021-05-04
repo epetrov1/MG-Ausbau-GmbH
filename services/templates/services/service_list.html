@@ -1,0 +1,25 @@
+{% extends "drybuild/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="main-image">
+        <img class="img-fluid" src="{% static 'img/services.jpeg' %}">
+    </div>
+    <h1 class="display-3" align="center">Services we offer</h1>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                {% for article in object_list %}
+                    <div class="card border-success">
+                        <h2 class="display-5">{{ article.title}}</h2>
+                        <p>{{ article.description }}</p>
+                    </div>
+                <br>
+                {% empty %}
+                   No articles yet.
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
