@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #extaernal
+    #extarnal
     'homepage',
     'services',
     'modeltranslation',
@@ -108,9 +108,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Sending Emails 
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = ''
+EMAIL_PORT = ''
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+#EMAIL_USE_TLS = 
+#EMAIL_USE_SSL = ''
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 LANGUAGE_CODE = 'de'
 
@@ -136,12 +149,11 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 SUMMERNOTE_THEME = 'bs4'
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+#X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ROSETTA_MESSAGES_PER_PAGE= 20
 ROSETTA_EXCLUDED_APPLICATIONS= ('blog', 'homepage', 'services')

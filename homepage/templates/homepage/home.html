@@ -1,11 +1,14 @@
 {% extends "drybuild/base.html" %}
 {% load static %}
 {% load i18n %}
-{% trans "About us" as about %}
+{% comment %} {% trans "About us" as about %}{% endcomment %}
+{% trans "We offer you" as offer %}
+{% comment %} {% trans "Testimonials" as testimonials %} {% endcomment %}
+
 {% block headers %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-<title>Ausbau GmbH</title>
+<title>MG Ausbau GmbH</title>
 
 {% endblock headers %}
 {% block content %}
@@ -18,87 +21,88 @@
   background-repeat: no-repeat;">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-12 text-center" style="color:white">
-                    <h1 class="font-weight-light display-3">{{ home_context.header }}</h1>
+                <div class="main-header">
+                    <div class="col-12">
+                        <h1 class="font-weight-light display-1">{{ home_context.header }}</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
-    {% comment %} <div class="masthead">
-        <div class="h-100">
-            <img class="main-image" style="height: 80vh;
-    min-height: 500px;" src="{{ home_context.main_image.url }}" alt="{{ home_context.main_image_alt}}"/>
-            <div class="row h-100">
-                <div class="col-12 text-center">
-                    <h1 class="font-weight-light display-1 mt-2">{{ home_context.header}}</h1>
-                    
-                </div>
-            </div>
-        </div>
-    </div> {% endcomment %}
-    <br>
+ 
 <!--About the company-->
-    <div class="container">
-        <h2 class="display-3" align="center">{% blocktrans %}{{ about }}{% endblocktrans %}</h2>
+        <div class="header">
+            <h2 class="display-3">{% trans "About us" %}</h2>
+        </div>
         <br>
-        <div class="row">
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <img class="img-thumbnail" src="{{ home_context.logo.url }}"/>
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12">
-                <p>{{ home_context.about_us}}</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <img class="img-thumbnail" src="{{ home_context.logo.url }}"/>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <p>{{ home_context.about_us}}</p>
+                </div>
             </div>
         </div>
         <br/>
-        <h2 class="display-3" align="center">What we offer to you</h2>
+        <!--What we offer cards -->
+        <div class="header">
+            <h2 class="display-3" class="title" align="center">{% trans "We offer you" %}</h2>
+        </div>
         <br/>
-        <div class="card-group">
-            <div class="card">
-                <img class="card-img-top" src="{{ home_context.card_one_image.url }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ home_context.card_one }}</h5>
-                    <p class="card-text">{{ home_context.card_one_description }}</p>
+        <div class="container">
+            <div class="card-group">
+                <div class="card text-center" style="border: none;">
+                    <img class="card-img-top mx-auto" style="width:300px; height:300px;" src="{{ home_context.card_one_image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ home_context.card_one }}</h5>
+                        <p class="card-text">{{ home_context.card_one_description }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ home_context.card_two_image.url }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ home_context.card_two }}</h5>
-                    <p class="card-text">{{ home_context.card_two_description }}</p>
+                <div class="card text-center" style="border: none;">
+                    <img class="card-img-top mx-auto" style="width:300px; height:300px;" src="{{ home_context.card_two_image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ home_context.card_two }}</h5>
+                        <p class="card-text">{{ home_context.card_two_description }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="card">
-                <img class="card-img-top" src="{{ home_context.card_three_image.url }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ home_context.card_three }}</h5>
-                    <p class="card-text">{{ home_context.card_three_description }}</p>
+                <div class="card text-center" style="border: none;">
+                    <img class="card-img-top mx-auto" style="width:300px; height:300px;" src="{{ home_context.card_three_image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ home_context.card_three }}</h5>
+                        <p class="card-text">{{ home_context.card_three_description }}</p>
+                    </div>
                 </div>
             </div>
         </div>
        
     <br/>
 <!--Testimonials-->
-    
-        <h2 class="display-3" align="center">Testimonials</h2>
+        <div class="header">
+            <h2 class="display-3" align="center">{% trans "Testimonials" %}</h2>
+        </div>
         <br/>
-        <div class="row justify-content-center bg-secondary">
-            <div class="col-lg-6 col-md-8 col-sm-12">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <h4 class="text-white">"{{ home_context.preporyka1 }}"</h4>
-                        </div>
-                        <div class="carousel-item">
-                            <h4 class="text-white">"{{ home_context.preporyka2 }}"</h4>
-                        </div>
-                        <div class="carousel-item">
-                            <h4 class="text-white">"{{ home_context.preporyka3 }}"</h4>
+        <div class="preporyki">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <h4>"{{ home_context.preporyka1 }}"</h4>
+                            </div>
+                            <div class="carousel-item">
+                                <h4>"{{ home_context.preporyka2 }}"</h4>
+                            </div>
+                            <div class="carousel-item">
+                                <h4>"{{ home_context.preporyka3 }}"</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <br/>
-    </div>
+    
 
 {% endblock content %}

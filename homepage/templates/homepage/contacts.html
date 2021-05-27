@@ -1,52 +1,69 @@
 {% extends 'drybuild/base.html' %}
-
+{% load i18n %}
+{% block headers %}
+<title>{% trans "Contacts" %}</title>
+{% endblock headers %}
 {% block content %}
-<div class="container">
-    <h1>Contacts</h1>
-        <div class="row">
-                <div class="col-lg-6 col-sm-12 col-md-6">
-                        <form class="form-horizontal" action="" method="post">
-                        <fieldset>
-                    
-                            <!-- Name input-->
-                            <div class="form-group">
-                            <label class="col-md-3 control-label" style="color:white" for="name">Име</label>
-                            <div class="col-md-9">
-                                <input id="name" name="name" type="text" placeholder="Вашето име" class="form-control">
-                            </div>
-                            </div>
-                    
-                            <!-- Email input-->
-                            <div class="form-group">
-                            <label class="col-md-3 control-label" style="color:white" for="email">Вашият email</label>
-                            <div class="col-md-9">
-                                <input id="email" name="email" type="text" placeholder="Вашият email" class="form-control">
-                            </div>
-                            </div>
-                    
-                            <!-- Message body -->
-                            <div class="form-group">
-                            <label class="col-md-3 control-label" style="color:white" for="message">Вашето съобщение</label>
-                            <div class="col-md-9">
-                                <textarea class="form-control" id="message" name="message" placeholder="Вашето съобщение напишете тук..." rows="5"></textarea>
-                            </div>
-                            </div>
-                    
-                            <!-- Form actions -->
-                            <div class="form-group">
-                            <div class="col-md-2 text-right">
-                                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                            </div>
-                            </div>
-                        </fieldset>
-                        </form>
-                </div>
-                <div class="col-lg-6 col-sm-12 col-md-6">
-                    <iframe width="300" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Lindwurmstra%C3%9Fe%20126A,%2080337%20M%C3%BCnchen,%20%D0%93%D0%B5%D1%80%D0%BC%D0%B0%D0%BD%D0%B8%D1%8F&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                </div>
-            <br>
-        </div>
-</div>
 
+    <div class="header">
+        <h1>{% trans "Contacts" %}</h1>
+    </div>
+    <br>
+    {% if message_name %}
+        <center>
+            <h2>{% trans "Thanks for your email: " %} {{ message_name }}</h2>
+            <p>{% trans "We will contact with you shortly." %}</p>
+        </center>
+    {% else %}
+        <div class="container">
+            <div class="row">
+                    <div class="col-lg-6 col-sm-12 col-md-6">
+                            <form class="form-horizontal" action="{% url 'contact' %}" method="post">
+                            {% csrf_token %}
+                                <fieldset>
+                            
+                                    <!-- Name input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="name">{% trans 'Your name' %}</label>
+                                    <div class="col-md-9">
+                                        <input id="name" name="name" type="text" placeholder="{% trans 'Your name' %}" class="form-control">
+                                    </div>
+                                    </div>
+                            
+                                    <!-- Email input-->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="email">{% trans 'Your email' %}</label>
+                                    <div class="col-md-9">
+                                        <input id="email" name="email" type="text" placeholder="{% trans 'Your email' %}" class="form-control">
+                                    </div>
+                                    </div>
+                            
+                                    <!-- Message body -->
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label" for="message">{% trans 'Your message' %}</label>
+                                    <div class="col-md-9">
+                                        <textarea class="form-control" id="message" name="message" placeholder="{% trans 'Your message' %}" rows="5"></textarea>
+                                    </div>
+                                    </div>
+                                    <br>
+                                    <!-- Form actions -->
+                                    <div class="form-group">
+                                    <div class="col-md-2 text-right">
+                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                        <br>
+                                    </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                    </div>
+                
+                    <div class="col-lg-6 col-sm-12 col-md-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5326.876522349723!2d11.539927540856635!3d48.12107106420918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479ddfe8d3ad0037%3A0xea932764babd7ff7!2sMG%20Ausbau%20GmbH!5e0!3m2!1sen!2sbg!4v1622039424400!5m2!1sen!2sbg" width="450" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                <br>
+            </div>
+        </div>
+    {% endif %}
+<br>
 
 {% endblock content %}

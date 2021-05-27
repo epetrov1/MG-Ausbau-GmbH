@@ -1,18 +1,35 @@
 {% extends "drybuild/base.html" %}
 {% load static %}
+{% load i18n %}
+{% block headers %}
+<title>{% trans "Services" %}</title>
+
+{% endblock headers %} 
 
 {% block content %}
-    <div class="main-image">
+    {% comment %} <div class="main-image">
         <img class="img-fluid" src="{% static 'img/services.jpeg' %}">
+    </div> {% endcomment %}
+    <div class="header">
+        <h1 class="display-3">{% trans "Services" %}</h1>
     </div>
-    <h1 class="display-3" align="center">Services we offer</h1>
+    <br>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 {% for article in object_list %}
-                    <div class="card border-success">
-                        <h2 class="display-5">{{ article.title}}</h2>
-                        <p>{{ article.description }}</p>
+                    <div class="card border-success text-center">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{ article.img.url }}" style="width:300px; height:auto;" alt="services dry build">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="display-7">{{ article.title}}</h2>
+                                    <p>{{ article.description }}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 <br>
                 {% empty %}

@@ -8,3 +8,20 @@
     background-repeat: no-repeat;
 }
 
+.main-header {
+    padding-top: 340px;
+    text-align: center;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+
+
+
+.preporyki {
+    text-align: center;
+    background: #CAEBEF;
+    color: black;
+
+}

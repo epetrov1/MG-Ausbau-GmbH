@@ -1,3 +1,15 @@
+{% load i18n %}
+{% trans "Contacts" as contact %}
+{% trans "Mobile" as mobile %}
+{% trans "Tel." as tel %}
+{% trans "Fax" as fax %}
+{% trans "Pages" as pages %}
+{% trans "Home" as home %}
+{% trans "Services" as services %}
+{% trans "Projects" as projects %}
+{% trans "Contacts" as contacts %}
+
+
 
 <footer class="bg-light text-dark text-center text-lg-start">
   <!-- Grid container -->
@@ -6,31 +18,37 @@
     <div class="row justify-content-center">
       <!--Grid column-->
       <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Contact us</h5>
+        <h5 class="text-uppercase">{{ contact }}</h5>
         <ul class="list-unstyled">
           <li>
-            <p>Phone: +49 888 789 7987</p>
+            <p>{{ mobile }}: +49 151 755 30336</p>
           </li>
-
+          <li>
+            <p>{{ tel }}: +49 8972 0198 10</p>
+          </li>
+          <li>
+            <p>{{ fax }}: +49 8972 0198 11</p>
+          </li>
+        </ul>
 
       </div>
       <!--Grid column-->
 
       <!--Grid column-->
       <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Pages</h5>
+        <h5 class="text-uppercase">{{ pages }}</h5>
           <ul class="list-unstyled">
             <li>
-              <a href="#" class="text-dark">Home</a>
+              <a href="{% url 'home-page' %}" class="text-dark">{{ home }}</a>
             </li>
             <li>
-              <a href="#" class="text-dark">Services</a>
+              <a href="{% url 'services-list' %}" class="text-dark">{{ services }}</a>
             </li>
             <li>
-              <a href="#" class="text-dark">Projects</a>
+              <a href="{% url 'projects' %}" class="text-dark">{{ projects }}</a>
             </li>
             <li>
-              <a href="#" class="text-dark">Contacts</a>
+              <a href="{% url 'contact' %}" class="text-dark">{{ contacts }}</a>
             </li>
             <li>
               <a href="#" class="text-dark">Site Map</a>
@@ -47,7 +65,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2021 Copyright: Ausbau GmbH
+    © 2021 Copyright: MG Ausbau GmbH
     <a class="text-white" href="https://www.facebook.com/evgeni.petrov.90/">Design Evgeni Petrov</a>
   </div>
   <!-- Copyright -->
