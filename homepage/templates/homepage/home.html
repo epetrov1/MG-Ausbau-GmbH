@@ -7,6 +7,8 @@
 
 {% block headers %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
 
 <title>MG Ausbau GmbH</title>
 
@@ -41,7 +43,11 @@
                     <img class="img-thumbnail" src="{{ home_context.logo.url }}"/>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <p>{{ home_context.about_us}}</p>
+                    {% comment %} <figure>
+                        <img src="{% static 'favicon.ico' %}" alt="Your text" />
+                        <figcaption>{{ home_context.about_us}}</figcaption>
+                    </figure> {% endcomment %}
+                    <img src="{% static 'favicon.ico' %}"/> <p class="about-us">{{ home_context.about_us | safe }}</p>
                 </div>
             </div>
         </div>
@@ -79,7 +85,7 @@
        
     <br/>
 <!--Testimonials-->
-        <div class="header">
+        {% comment %} <div class="header">
             <h2 class="display-3" align="center">{% trans "Testimonials" %}</h2>
         </div>
         <br/>
@@ -102,7 +108,7 @@
                 </div>
             </div>
         </div>
-        <br/>
+        <br/> {% endcomment %}
     
 
 {% endblock content %}

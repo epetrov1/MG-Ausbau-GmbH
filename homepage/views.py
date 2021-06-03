@@ -23,7 +23,7 @@ def contacts(request):
             message_name, #subject
             message, #message
             message_email, #sender 
-            ['offerlesson@gmail.com'], #recivers
+            ['office@mgausbaugmbh.de'], #recivers
             )        
 
         return render(request, "homepage/contacts.html", {'message_name': message_name})

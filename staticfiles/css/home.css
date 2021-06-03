@@ -1,0 +1,30 @@
+.main-image {
+    height: 80vh;
+    min-height: 500px;
+    /* background-image: url({{ home_context.main_image.url }}); */
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-header {
+    padding-top: 340px;
+    text-align: center;
+    color: black;
+    font-family: 'Pattaya', sans-serif;
+}
+
+
+
+
+.preporyki {
+    text-align: center;
+    background: #CAEBEF;
+    color: black;
+
+}
+
+.card-title {
+    color: #D4AF37;
+}

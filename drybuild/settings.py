@@ -23,10 +23,10 @@ if READ_DOT_ENV_FILE:
     environ.Env.read_env()
 
 # False if not in os.environ
-DEBUG = env('DEBUG')
+DEBUG = True
 
 # Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = '%1*_)-##b+ejmb9z^86)3j0kc-!7g#ilxypo9zdf(lh^22p)ok'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,6 +42,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,12 +96,8 @@ WSGI_APPLICATION = 'drybuild.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env("DB_NAME"),
-        'USER': env("DB_USER"),
-        'PASSWORD': env("DB_PASSWORD"),
-        'HOST': env("DB_HOST"),
-        'PORT': env("DB_PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -124,13 +121,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 #Sending Emails 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = ''
-EMAIL_PORT = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-#EMAIL_USE_TLS = 
-#EMAIL_USE_SSL = ''
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'server.superhosting.bg'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'office@mgausbaugmbh.de'
+EMAIL_HOST_PASSWORD = 'gipskarton1234'
+#EMAIL_USE_TLS = True
+EMAIL_USE_SSL = '465'
 
 
 # Internationalization

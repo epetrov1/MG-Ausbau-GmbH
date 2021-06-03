@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 {% trans "Contacts" as contact %}
 {% trans "Mobile" as mobile %}
 {% trans "Tel." as tel %}
@@ -16,6 +17,11 @@
   <div class="container-fluid">
     <!--Grid row-->
     <div class="row justify-content-center">
+
+    <!--Grid column-->
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <img style="width:200px; height:200px;" src="{% static 'favicon-min.jpeg' %}"/>
+     </div> 
       <!--Grid column-->
       <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase">{{ contact }}</h5>
@@ -32,7 +38,7 @@
         </ul>
 
       </div>
-      <!--Grid column-->
+      
 
       <!--Grid column-->
       <div class="col-lg-4 col-md-6 mb-4 mb-md-0">

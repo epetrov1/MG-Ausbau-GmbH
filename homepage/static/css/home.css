@@ -9,15 +9,16 @@
 }
 
 .main-header {
-    padding-top: 340px;
+    padding-top: 500px;
     text-align: center;
-    color: white;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
+    color: black;
+    font-family: 'Pattaya', sans-serif;
 }
 
 
-
+.about-us {
+    display: inline;
+}
 
 .preporyki {
     text-align: center;

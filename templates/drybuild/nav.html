@@ -1,9 +1,11 @@
 {% load i18n %}
+{% load static %}
 {% trans "Services" as services %}
 {% trans "Projects" as projects %}
 {% trans "Contacts" as contacts %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'home-page' %}"> Ausbau GmbH</a>
+
+  <a class="navbar-brand" href="{% url 'home-page' %}"><img src="{% static 'favicon.ico' %}"/> Ausbau GmbH</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
