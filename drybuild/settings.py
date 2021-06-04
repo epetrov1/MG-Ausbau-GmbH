@@ -26,7 +26,7 @@ if READ_DOT_ENV_FILE:
 DEBUG = True
 
 # Raises django's ImproperlyConfigured exception if SECRET_KEY not in os.environ
-SECRET_KEY = '%1*_)-##b+ejmb9z^86)3j0kc-!7g#ilxypo9zdf(lh^22p)ok'
+SECRET_KEY = ''
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
